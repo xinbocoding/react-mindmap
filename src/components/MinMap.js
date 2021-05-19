@@ -11,41 +11,41 @@ const MindMap = ({ getTreeData }) => {
   const d3Links = useRef(null);
 
   useEffect(() => {
-    let nodeData = JSON.stringify({ ...getTreeData }, null, 3);
-    if (d3Container.current) {
+    // let nodeData = JSON.stringify({ ...getTreeData }, null, 3);
+    if (d3Nodes.current) {
       drawChart(getTreeData);
     }
   }, [getTreeData]);
 
-  const drawChart = (nodeData) => {
-    let root = d3.hierarchy(nodeData);
+  const drawChart = () => {
+    let root = d3.hierarchy(getTreeData);
     // var svg = d3
     //   .select(d3Container.current)
     //   .append("svg")
     //   .attr("width", width)
     //   .attr("height", height);
 
-    var tree = d3.tree().size([400, 400]);
+    var tree = d3.tree().size([400, 200]);
     tree(root);
-    console.log(d3Nodes.current)
+    // console.log(root.descendants())
     //Nodes
-    d3.select(d3Nodes.current)
+    d3.select('svg g.nodes')
       .selectAll('circle.node')
       .data(root.descendants())
       .enter()
       .append("circle")
       .classed("node", true)
       .attr("cx", function (d) {
-        console.log(d);
         return d.x;
       })
       .attr("cy", function (d) {
+        console.log(d)
         return d.y;
       })
       .attr("r", 4);
 
     // Links
-    d3.select(d3Links.current)
+    d3.select('svg g.links')
       .selectAll('line.link')
       .data(root.links())
       .enter()
@@ -67,8 +67,8 @@ const MindMap = ({ getTreeData }) => {
 
   return (
     <div>
-      <svg ref={d3Container}>
-        <g transform="translate(5, 5)">
+      <svg height='520' width='400'>
+        <g>
           <g className="links" ref={d3Nodes}></g>
           <g className="nodes" ref={d3Links}></g>
         </g>

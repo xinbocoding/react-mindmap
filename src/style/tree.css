@@ -27,3 +27,14 @@ svg.custom path.link {
 	stroke: #2593B8;
 	stroke-width: 2.5px;
 }
+
+/* .node {
+  fill: steelblue;
+  stroke: none;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1px;
+} */

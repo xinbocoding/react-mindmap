@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { node, append_rec } from "../utils/tools";
 
 const CustomInput = ({ setNode }) => {
-  const [textVal, setTextVal] = useState();
+  const [textVal, setTextVal] = useState("");
   const textArea = useRef();
 
   const handleChange = (e) => {
