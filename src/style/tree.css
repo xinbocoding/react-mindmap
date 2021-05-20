@@ -1,5 +1,5 @@
 div.tree-container {
-  background-color: #242424;
+  background-color: #28384f;
 }
 div.custom-container {
   /* background-color: red */
@@ -24,7 +24,7 @@ svg.custom .node {
 
 svg.custom path.link {
 	fill: none;
-	stroke: #2593B8;
+	stroke: #ff754a;
 	stroke-width: 2.5px;
 }
 

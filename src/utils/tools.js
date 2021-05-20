@@ -23,6 +23,7 @@ export function append_rec(prev, curr) {
     curr = curr.split("\t"); //or tab (\t)
     curr = node(curr.pop(), curr.length);
   }
+
   if (curr.lvl() > prev.lvl()) {
     //curr is prev's child
     prev.appendChildren(curr);
